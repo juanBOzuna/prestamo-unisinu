@@ -39,7 +39,27 @@
             <div class="row">
                 <div class="form-student">
                     <form action="back.php" method="POST">
-                        <table>
+                        <div class="content-form">
+                            <h4>DATOS DEL PRESTAMO </h4>
+
+                            <input class="digit-calc" type="text" name="name" placeholder="Primer nombre del cliente"
+                                required>
+                            <input class="digit-calc" type="number" name="ammount" placeholder="Cantidad $" step="any"
+                                required>
+                            <input class="digit-calc" type="number" name="interest" placeholder="Interes %" required>
+                            <input class="digit-calc" type="number" name="installments" placeholder="Numero de cuotas"
+                                required>
+
+                            <div id="text-descript">
+                                <p>Formulario hecho por <a href="https://github.com/juanBOzuna" target="_blank">Juan
+                                        Barraza</a></p>
+                            </div>
+
+                            <input class="send-data" type="submit" name="" id="">
+
+                        </div>
+
+                        <!-- <table>
                             <tr>
                                 <td>
                                     <h4>DATOS DEL PRESTAMO </h4>
@@ -76,7 +96,7 @@
                                     <input class="send-data" type="submit" name="" id="">
                                 </th>
                             </tr>
-                        </table>
+                        </table> -->
                     </form>
                 </div>
                 <div class="form-result">
