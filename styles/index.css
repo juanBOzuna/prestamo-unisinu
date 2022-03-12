@@ -9,9 +9,10 @@
 }
 
 body {
-    background-image: url("../assets/fondo-blur-teal.jpg");
+    background: linear-gradient(to bottom right, teal, rgb(15, 216, 216));
+    /* background-image: url("../assets/fondo-blur-teal.jpg");
     background-repeat: no-repeat;
-    background-size: 100%;
+    background-size: 100%; */
 }
 
 .row {

@@ -99,9 +99,13 @@ th {
     padding-left: 5px;
     padding-right: 5px;
 }
-
+ 
 .table1 #result {
-    color: rgb(230, 230, 230);
+    color: rgb(240, 240, 240);
+}
+
+.table1 #date {
+    color: rgb(240, 240, 240);
 }
 
 .line-divider {

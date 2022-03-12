@@ -15,10 +15,10 @@
 
     <?php
     
-    session_start();
-    if(isset($_REQUEST['isResp']) && !isset($_REQUEST['isReload']) ){
+    // session_start();
+    // if(isset($_REQUEST['isResp']) && !isset($_REQUEST['isReload']) ){
        
-        $result = [
+        @$result = [
             "name"=>$_REQUEST['name'],
             "ammount"=>$_REQUEST['ammount'],
             "interest"=>$_REQUEST['interest'],
@@ -26,12 +26,12 @@
             "priceInstallment"=>$_REQUEST['priceInstallment'],
         ];
 
-        if(!isset(  $_SESSION['dataSnapshot'])){
-            $_SESSION['dataSnapshot'] = $result;
-        }
+        // if(!isset(  $_SESSION['dataSnapshot'])){
+        //     $_SESSION['dataSnapshot'] = $result;
+        // }
 
-        var_dump($_SESSION['dataSnapshot']);
-    } 
+        // var_dump($_SESSION['dataSnapshot']);
+    // } 
     ?>
 
     <body>
@@ -83,15 +83,16 @@
                     <?php
                    if(!isset($_REQUEST['isResp'])){
                        echo ' <table>
-                       <tr><td><h4>SHOP </h4></td></tr>
+                       <tr><td><h4>PRESTAMO </h4></td></tr>
                        <tr>
-                       <img id="img-shop" src="assets\shop-vector.png" alt="">
+                       <img id="img-shop" src="assets\prestamo-vector.png" alt="">
                        </tr>
                        </table>';
                    }else{
                        $data = "";
                        $dataDate = "";
-                    foreach ( $_SESSION['dataSnapshot']  as $key =>$dataSnapshot ) {
+
+                    foreach ( $result as $key =>$dataSnapshot ) {
                        if($key!="priceInstallment"){
                         $data .= '
                         <th scope="row" id="result" >'.$dataSnapshot.'</th>
@@ -99,11 +100,15 @@
                        }
                     }
 
-                    for ($i=0; $i <$_SESSION['dataSnapshot']['installments'] ; $i++) { 
+                    date_default_timezone_set('America/Bogota');
+                    $d = new DateTime("now");
+
+                    for ($i=0; $i <$result['installments'] ; $i++) { 
+                        $d = $d->add(new DateInterval('P1M'));
                         # code...
                         $dataDate .= '
                         <tr>
-                        <th>'.$dataSnapshot.'</th>
+                        <th id="date" >'.$d->format('Y-m-d').'  -  $'.$result['priceInstallment'].' </th>
                         </tr>
                         '; 
                     }
